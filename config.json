@@ -1,5 +1,5 @@
 {
   "mqtt": {
-    "url":        "tcp://mqtt.lan:1883"
+    "url": "tcp://mqtt.lan:1883"
   }
 }
