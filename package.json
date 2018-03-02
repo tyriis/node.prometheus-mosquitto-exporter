@@ -1,0 +1,27 @@
+{
+  "name": "node.prometheus-mosquitto-exporter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "async-mqtt": "^1.0.1",
+    "express": "^4.16.2"
+  },
+  "scripts": {
+    "start": "nodemon $NODE_DEBUG_OPTION ./server.js --exec babel-node",
+    "production": "node ./server.js --exec babel-node"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.12.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
