@@ -10,7 +10,7 @@ mqtt.on('message', (topic, message) => {
     message = message.toString('utf8');
     if (!data[topic]) {
         data[topic] = {
-            label: topic.replace('$SYS/broker/', '').replace('/', '_'),
+            label: topic.replace('$SYS/broker/', '').split('/').join('_'),
             type: message.indexOf('.') > 0 ? 'gauge' : 'counter'
         }
     }
