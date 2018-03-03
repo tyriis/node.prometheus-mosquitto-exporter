@@ -7,14 +7,15 @@ let MQTTClient = require('async-mqtt');
 let mqtt =  MQTTClient.connect(config.mqtt.url);
 mqtt.subscribe("$SYS/#");
 mqtt.on('message', (topic, message) => {
-    message = message.toString('utf8');
+    message = message.toString('utf8').replace(' seconds', '');
     if (!data[topic]) {
         data[topic] = {
             label: topic.replace('$SYS/', '').split('/').join('_').split(' ').join('_'),
             type: message.indexOf('.') > 0 ? 'gauge' : 'counter'
         }
     }
-    data[topic].value = parseFloat(message.replace(' seconds', '').toExponential(20);
+    let intValue = parseInt(message);
+    data[topic].value = data[topic].type === 'counter' && intValue > 2147483647 ? parseInt(message).toExponential(8) : message;
 });
 
 app.get('/', function (req, res) {
