@@ -12,4 +12,4 @@ RUN npm install
 # Bundle app source
 COPY . .
 EXPOSE 9234
-CMD [ "npm", "start" ]
+CMD [ "npm", "production" ]
