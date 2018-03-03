@@ -14,7 +14,7 @@ mqtt.on('message', (topic, message) => {
             type: message.indexOf('.') > 0 ? 'gauge' : 'counter'
         }
     }
-    data[topic].value = message.replace(' seconds', '')
+    data[topic].value = parseFloat(message.replace(' seconds', '').toExponential(20);
 });
 
 app.get('/', function (req, res) {
