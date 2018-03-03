@@ -1,6 +1,6 @@
-import path from 'path'
-import express from 'express'
-import MQTTClient from 'async-mqtt'
+let path = require('path')
+let express = require('express')
+let MQTTClient = require('async-mqtt')
 
 let config = require('./config.json')
 let counterTopics = [
